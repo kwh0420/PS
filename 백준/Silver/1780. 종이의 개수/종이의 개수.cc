@@ -19,7 +19,11 @@ bool compare(int start_row,int start_col,int N) { //처음엔 solve내에 전부
 }
 void solve(int start_row,int start_col, int N) {
     int same=1;
-
+    /* if (N==1) { 원래 이렇게 N==1일때의 base condition을 넣어줬으나, 어차피 N=1일때, 부분 배열의 모든 원소가 같으므로 compare
+                    조건에 걸림. 그래서 N==1일떄의 base condition은 필요하지 않음.
+     result[arr[start_row][start_col]+1]++;
+     return;
+     } */
 
     if (compare(start_row,start_col,N)) {
         result[arr[start_row][start_col]+1]++;
@@ -30,7 +34,7 @@ void solve(int start_row,int start_col, int N) {
             for (int j=0; j<3 ; j++) {
                 int nrow = start_row + row_dir[i]*nN;
                 int ncol = start_col + col_dir[j]*nN;
-                solve(nrow,ncol,nN);
+                solve(nrow,ncol,nN); //이부분이 재귀의 핵심, 만약 9부분이 같지 않으면 쪼개서 9부분 내에서 다시 또 비교를 시킴
             }
         }
     }
@@ -53,3 +57,4 @@ int main() {
     }
 
 }
+
