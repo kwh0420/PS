@@ -33,7 +33,7 @@ void bfs(int row,int col, int mode) {
         else if (arr[nrow][ncol]>0) {
         }
         else {
-            arr[nrow][ncol]--;
+            arr[nrow][ncol]--; //삽질 포인트 1, 배열을 이전상태로 되돌리려면 단순히 1,0이렇게 하는 것이아닌, 겹치는 경우도 있기 때문에 ++,--로해야함함
         }
         nrow = nrow + row_dir[mode];
         ncol = ncol + col_dir[mode];
@@ -85,7 +85,7 @@ void func(int depth) {
         }
 
     }
-    if (arr[row][col]==3) {
+    if (arr[row][col]==3) { //삽질포인트2, 각 경우를 정확히 구현 안함함
         for (int i=0; i<4; i++) {
             bfs(row,col,i);
             bfs(row,col,(i+1)%4);
@@ -133,3 +133,4 @@ int main() {
     func(0);
     cout << minvalue ;
 }
+
