@@ -7,6 +7,8 @@ int check(int depth,int r, int c, int mode) {
             for (int z=0; z<v[depth][mode].size(); z++) {
                 int row = v[depth][mode][z].first+r;
                 int col = v[depth][mode][z].second+c;
+                // [변경] 범위 체크를 arr 접근 전에 수행하도록 순서 변경
+                // 기존: arr[row][col] == 1 || 범위 밖  → 범위 밖일 때 접근 오류 가능성 있었음
                 if (!(0<=row && row<N && 0<=col && col<M)||arr[row][col]==1 ) {
                     return 0;
                 }
@@ -15,6 +17,7 @@ int check(int depth,int r, int c, int mode) {
 }
 void fill(int depth,int r, int c, int mode) {
     for (int z=0; z<v[depth][mode].size(); z++) {
+        // [변경] 잘못된 인덱스 순서(v[depth][z][mode]) → 올바른 순서(v[depth][mode][z])로 수정
         int row = v[depth][mode][z].first+r;
         int col = v[depth][mode][z].second+c;
         arr[row][col]=1;
@@ -69,18 +72,24 @@ int main() {
         }
         int size=v[k][0].size();
 
+        // [변경] 스티커 회전 시 기존 코드에서 비어 있는 v[k][1], v[k][2], v[k][3]를 참조하던 버그 수정
+        //       모든 회전은 원본 모양 v[k][0]을 기반으로 계산하도록 변경
+
+        // 시계방향 90도 회전
         for (int i=0; i<size; i++) {
             int nrow =v[k][0][i].first;
             int ncol =v[k][0][i].second;
             v[k][1].push_back(make_pair(ncol,row-1-nrow));
         }
 
+        // 시계방향 180도 회전
         for (int i=0; i<size; i++) {
             int nrow =v[k][0][i].first;
             int ncol =v[k][0][i].second;
             v[k][2].push_back(make_pair(row-1-nrow,col-1-ncol));
         }
 
+        // 시계방향 270도 회전
         for (int i=0; i<size; i++) {
             int nrow =v[k][0][i].first;
             int ncol =v[k][0][i].second;
@@ -89,6 +98,4 @@ int main() {
 
     }
     st(0);
-
-
 }
