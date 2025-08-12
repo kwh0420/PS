@@ -26,6 +26,8 @@ void rotate(int top,int mode) {
          → 해결: 오른쪽 전파는 idx<3, 왼쪽 전파는 idx>0 조건으로 수정.
     4차: 시계/반시계 방향 전파 부호 반대로 설정 실수.
          → 해결: dirs[idx+1] = -dirs[idx], dirs[idx-1] = -dirs[idx]로 일관성 유지.
+    5차: rotate함수를 int형으로 선언해서 프로그램이 진행이 안됐음
+        -> 해결 : void형으로 전환
 */
 
 int main() {
@@ -72,3 +74,4 @@ int main() {
     // 점수 계산: 각 톱니의 0번 위치 값 × 가중치
     cout << arr[0][0] + arr[1][0]*2 + arr[2][0]*4 + arr[3][0]*8;
 }
+
