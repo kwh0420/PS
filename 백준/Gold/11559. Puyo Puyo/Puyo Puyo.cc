@@ -60,7 +60,7 @@ int main() {
                 for (int i=0; i<4; i++) {
                     int nrow = p.row+ row_dir[i];
                     int ncol = p.col+ col_dir[i];
-                    if (0<=nrow && nrow<12 && 0<=ncol && ncol<6&&vis[nrow][ncol]==0 && color == arr[nrow][ncol]) {
+                    if (0<=nrow && nrow<12 && 0<=ncol && ncol<6&&vis[nrow][ncol]==0 && color == arr[nrow][ncol] //원래 이부분이 arr[nrow][ncol]==1이였음 이렇게 하면 삽질 주의) {
                             vis[nrow][ncol]=1;
                             q.push(make_pair(nrow, ncol));
                             cnt++;
@@ -105,3 +105,4 @@ int main() {
 }
     cout << result;
 }
+
