@@ -15,7 +15,7 @@
 
 
 
-바킹독님의 실전 알고리즘 강의 : https://blog.encrypted.gg/category/%EA%B0%95%EC%A2%8C/%EC%8B%A4%EC%A0%84%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
+바킹독님의 실전 알고리즘 강의 : https://blog.encrypted.gg/category/%EA%B0%95%EC%A2%8C/%EC%8B%A4%EC%A0%84%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98 \n
 바킹독님의 문제집 : https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md
 
 바킹독님의 강의 블로그를 공부하고 혼자 정리한 내용 : https://velog.io/@kimwoohyun123/%EC%8B%A4%EC%A0%84-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-0x01%EA%B0%95-%EA%B8%B0%EC%B4%88-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1-%EC%9A%94%EB%A0%B9-I
