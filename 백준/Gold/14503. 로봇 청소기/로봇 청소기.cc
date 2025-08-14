@@ -29,7 +29,7 @@ int main() {
             vision=(vision-1+4)%4; // 회전을 언제할지에 따라 답이 달라짐
             int nrow=row+row_dir[vision];
             int ncol=col+col_dir[vision];
-            if (0<=nrow&&nrow<N&&0<=ncol&&ncol<M&&vis[nrow][ncol]==0&&arr[nrow][ncol]==0) {
+            if (0<=nrow&&nrow<N&&0<=ncol&&ncol<M&&vis[nrow][ncol]==0&&arr[nrow][ncol]==0) { //문제 풀때는 몰랐지만 맵 테두리가 전부 벽으로 둘러 싸여 있어서 nrow,ncol에 범위 조건을 달 필요가 없었음.
                 vis[nrow][ncol]=1;
                 row=nrow;
                 col=ncol;
@@ -59,4 +59,5 @@ int main() {
     }
     cout << cnt;
 }
+
 
