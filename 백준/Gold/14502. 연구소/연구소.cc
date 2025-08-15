@@ -48,36 +48,6 @@ int main() {
                 k++;
             }
         }
-    }
-    int index=0;
-    temp[N*M-1]=1;
-    temp[M*N-2]=1;
-    temp[M*N-3]=1;
-int max_sum=99999;
-    do {
-        int sum=0;
-        int copy[10][10]={0};
-        memcpy(copy,arr,sizeof(arr));
-        for (int i=0; i<N ; i++) {
-            for (int j=0; j<M ; j++) {
-                if (temp[i*M+j]==1 &&arr[i][j]!=2) {
-                    arr[i][j]=1;
-                }
-            }
-        }
-        for (int i=0; i<N; i++) {
-            for (int j=0; j<M; j++) {
-                sum+=bfs(i,j);
-            }
-        }
+    }음
 
-        memcpy(arr,copy,sizeof(arr));
-        for (int i=0; i<N ; i++) {
-            for (int j=0; j<M ; j++) {
-                vis[i][j]=0;
-            }
-        }
-        max_sum= min(max_sum,sum);
-    }while (next_permutation(temp,temp+N*M));
-    cout << N*M-max_sum-k-3  ;
 }
