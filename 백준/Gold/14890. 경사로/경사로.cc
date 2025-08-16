@@ -40,7 +40,7 @@ int check (int depth, int j,int mode) {
         }
         int cond=arr[depth][k];
         for (int i=j; i<k ; i++) {
-            if (vis[i]==1) {
+            if (vis[i]==1) { //경사로를 같은 곳에 2번 놓지 않도록 vis 배열을 사용함. 해답지엔 cnt를 이용해서, cnt가 L이상이 아닐경우 경사로를 못놓는 방식으로 구현. 
                 return 0;
             }
             if (arr[depth][i]!=cond) {
@@ -105,3 +105,4 @@ int main() {
     }
     cout << sum ;
 }
+
