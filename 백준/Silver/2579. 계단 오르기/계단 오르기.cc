@@ -1,23 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
-int k[1000001][3];
-
+int k[1000001];
+int s[1000001];
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
     int n;
     cin >> n;
-    for (int j = 1; j <= n; j++) {
-        cin >> k[j][0];
+    int sum=0;
+    for (int i=1; i<=n; i++) {
+        cin >> s[i];
+        sum+=s[i];
     }
-    k[1][1]=k[1][0];
-    k[1][2]=0;
-    k[2][1]=k[2][0];
-    k[2][2]=k[1][0]+k[2][0];
-    for (int i = 3; i <= n; i++) {
-        k[i][1] = max(k[i - 2][1], k[i - 2][2]) + k[i][0];
-        k[i][2] = k[i - 1][1] + k[i][0];
+    k[1]=s[1];
+    k[2]=s[2];
+    k[3]=s[3];
+    for (int i=4; i<=n; i++) {
+        k[i]+=min(k[i-2],k[i-3])+s[i];
+
     }
-    cout << max(k[n][1],k[n][2]) << "\n";
+    cout << sum-min(k[n-1],k[n-2]);
 }
