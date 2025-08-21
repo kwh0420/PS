@@ -1,3 +1,4 @@
+//본문제에서는 dp[i][0], dp[i][1]과 dp[i-1][0],dp[i-1][1]사이의 점화식으로 해결했으나, dp[i]=dp[i-1](+dp[i-2](만약, 10<=string[i]+string[i-1]*10 <=26이라면))의 점화식으로 해결하면 훨씬 쉽게 해결할 수 있다. 
 #include <bits/stdc++.h>
 using namespace std;
 long long int dp[5003][2];
@@ -59,4 +60,5 @@ int main() {
 
     }
     cout << (dp[s.length()-1][0]% 1000000+dp[s.length()-1][1]% 1000000)% 1000000 << "\n";
+
 }
