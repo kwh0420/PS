@@ -5,12 +5,12 @@ map<pair<int,int>, int> w;
 vector<int> v[1002];
 int N,M;
 int go(int cur, int par) {
-    if (v[cur].size()==1 && cur != 1) {
+    if (v[cur].size()==1 && cur != 1) { // cur!=1을 추가해주지 않아서 , 1-2 처럼 총 노드의 개수가 2일때의 경우를 커버해주지 못했음
         return 999999;
     }
     int sumsum=0;
     for (int i : v[cur]) {
-        if (i==par) {
+        if (i==par) { 
             continue;
         }
         sumsum += min(go(i,cur),w[{cur,i}]);
@@ -44,4 +44,5 @@ int main() {
         }
         w.clear();
     }
+
 }
