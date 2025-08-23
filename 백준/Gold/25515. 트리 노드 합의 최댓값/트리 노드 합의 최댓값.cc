@@ -5,7 +5,7 @@ long long w[100002];
 vector<long long> v[100002];
 long long dp[100002];
 long long go(long long cur,long long par) {
-    if (v[cur].size()==1 && cur !=0) {
+    if (v[cur].size()==1 && cur !=0) { // cur==1과 cur==0을 헷갈림.. 노드의 첫 번호가 0인지 1인지 잘 확인해야한다.
             return w[cur];
     }
     long long sum=0;
@@ -38,4 +38,5 @@ int main() {
 
     cout << go(0,-1);
     cout << "\n";
+
 }
