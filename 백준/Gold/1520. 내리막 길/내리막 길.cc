@@ -6,7 +6,7 @@ int row_dir[4] = {0, 1, 0, -1};
 int col_dir[4] = {1, 0, -1, 0};
 int result[502][502];
 int go(int row, int col) {
-    if (result[row][col] != -1) {
+    if (result[row][col] != -1) { // 이거 처리 안해주면 이미 방문한 곳에 또 방문해서 오답처리됨. 이것 때문엥 삽질함
         return result[row][col];
     }
     if (row==0 && col == 0) return 1;
@@ -40,3 +40,4 @@ int main() {
     }
     cout <<go(N - 1, M - 1);
 }
+
