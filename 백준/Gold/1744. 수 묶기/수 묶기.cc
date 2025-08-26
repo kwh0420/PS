@@ -32,7 +32,7 @@ long long int valueofzero;
             sum+=plusarr[idx];
             break;
         }
-        else if (plusarr[idx]==1 || plusarr[idx+1]==1) {
+        else if (plusarr[idx]==1 || plusarr[idx+1]==1) { //1인경우 곱하면 손해인걸 고려해주지 못함
             sum+=plusarr[idx];
             idx+=1;
         }
@@ -55,4 +55,5 @@ long long int valueofzero;
         idx+=2;
     }
      cout << sum;
+
 }
