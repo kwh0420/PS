@@ -32,7 +32,7 @@ long long int valueofzero;
             sum+=plusarr[idx];
             break;
         }
-        else if (plusarr[idx]==1 || plusarr[idx+1]==1) { //1인경우 곱하면 손해인걸 고려해주지 못함
+        else if (plusarr[idx]==1 || plusarr[idx+1]==1) { //1인경우 곱하면 손해인걸 고려해주지 못함 근데 애초에 이렇게 할 필요 없이 입력으로 1을 받으면 그냥 더해주고 0과마찬가지로 고려해주지 않으면 됨.
             sum+=plusarr[idx];
             idx+=1;
         }
@@ -57,3 +57,4 @@ long long int valueofzero;
      cout << sum;
 
 }
+
