@@ -11,19 +11,15 @@ int main(void){
         int n;
         cin>>n;
         vector<long long int> arr(n,0);
-        vector<long long int> k(n,0);
         for (int j=0; j<n; j++) {
             cin>>arr[j];
         }
         long long int maxval=0;
+        long long int sum=0;
         for (int j=n-1; j>=0; j--) {
             maxval=max(maxval, arr[j]);
-            k[j]=maxval;
-        }
-        long long int sum=0;
-        for (int j=0; j<n; j++) {
-            if (k[j]-arr[j]>0) {
-                sum+=k[j]-arr[j];
+            if (maxval>arr[j]) {
+                sum+=maxval-arr[j];
             }
         }
         cout<<sum<<"\n";
