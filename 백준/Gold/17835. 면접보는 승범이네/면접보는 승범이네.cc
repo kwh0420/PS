@@ -9,10 +9,10 @@ long long int result[100002];
 long long int N,M,K;
 void go() {
     for (long long int i=1; i<=N; i++) {
-        dist[i]=1e18;
+        dist[i]=1e18; // 간선의 개수가 큰 경우 dist의 INF값을 크게 해줘야 함을 몰랐음음
     }
     priority_queue<pair<long long int,long long int>,vector<pair<long long int,long long int>>,greater<pair<long long int,long long int>>> q;
-    for (int i = 0; i < K; i++) {
+    for (int i = 0; i < K; i++) { // 여러지점에서 다익스트라 시작하는 법을 몰라서 헤멤
         dist[dest[i]] = 0;
         q.push({0, dest[i]});
     }
@@ -44,7 +44,7 @@ int main() {
     cout.tie(NULL);
 
     cin>>N>>M>>K;
-    for (long long int i=0; i<M; i++) {
+    for (long long int i=0; i<M; i++) { //도착지에서 출발지로 역으로 가는 느낌을 아예 몰랐음
         long long int U,V,C;
         cin>>U>>V>>C;
         v[V].push_back(make_pair(C,U));
@@ -66,5 +66,6 @@ int main() {
 
     cout << result_max_node<< "\n";
     cout << result_max_val << "\n";
+
 
 }
