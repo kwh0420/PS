@@ -4,6 +4,9 @@ vector<pair<long long int,int>> v[100001];
 long long int dist[100001];
 long long int pre[100001];
 int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  
   long long int N;
   long long int M;
   long long int A;
@@ -37,5 +40,5 @@ int main() {
     }
 
   }
-  cout << pre[B];
+  cout << ((pre[B]==1e18)?-1:pre[B]);
 }
