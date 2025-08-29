@@ -22,9 +22,8 @@ int main() {
     sort(sum.begin(), sum.end());
     int maxval = 0;
     for (int i = N - 1; i >= 0; i--) {
-        for (int j = 0; j < sum.size(); j++) {
-            if (arr[i] - sum[j] <= 0) { continue; }
-            if (binary_search(arr, arr + N, arr[i] - sum[j])) {
+        for (int j = 0; j < i; j++) {
+            if (binary_search(sum.begin(), sum.end(), arr[i]-arr[j])) {
                 cout << arr[i];
                 return 0;
             }
