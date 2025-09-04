@@ -10,7 +10,7 @@ int main() {
     long long int minval = 1e18;
     long long int k=0;
 
-    while(end<=n) {
+    while(end<=n) { //END는 현재 요소의 +1에 존재한다. 따라서, END==N일때도 범위를 포함해야한다.
         if (k<m) {
             k+=arr[end];
             end++;
@@ -21,4 +21,5 @@ int main() {
         }
     }
     cout << ((minval==1e18)?0:minval);
+
 }
