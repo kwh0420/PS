@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 priority_queue<pair<int,int>> pq;
-multiset<int> s;
+multiset<int> s; //set은 중복되는 원소 저장하지 않음을 까먹고 헤맴.
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
@@ -28,4 +28,5 @@ int main() {
         }
     }
     cout << s.size();
+
 }
