@@ -27,7 +27,7 @@ int main() {
     }
     queue<int> q;
     q.push(1);
-    while (!q.empty()) {
+    while (!q.empty()) { // 한번에 전파하면 O(N+M), M들어올때마다 전파하면 O(NM).. 설계 잘해야함. 그리고 N=100000이라 재귀로는 못푸니 주의
         int cur=q.front();
         q.pop();
         for (auto i : v[cur]) {
@@ -39,4 +39,5 @@ int main() {
     for(int i=1; i<=n; i++) {
         cout<<result[i]<<" ";
     }
+
 }
