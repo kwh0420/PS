@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> // 중위 순회 순서가 곧 열의 위치임 
 using namespace std;
 int depthmin[10002];
 int depthmax[10002];
@@ -34,10 +34,11 @@ int main() {
         if (par[i]==0)root=i;
     }
     dfs(root,1);
-    int maxlevel=1;
+    int maxlevel=1; // 답이 root하나만 있는 경우를 고려해야함. 퍼센트 높은 곳에서 걸리면 보통 이런 극단적 경우
     int maxval=0;
     for (int i = 1; i <=n; i++) {
         if (maxval<depthmax[i]-depthmin[i]) {maxval=depthmax[i]-depthmin[i];maxlevel=i;}
     }
     cout << maxlevel <<" " << maxval+1;
+
 }
