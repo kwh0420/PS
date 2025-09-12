@@ -28,7 +28,7 @@ int main() {
             q.pop();
             for(int j=0;j<v[cur].size();j++) {
                 if(vis[v[cur][j]] == 1) {
-                    if (v[cur][j]!=par[cur])
+                    if (v[cur][j]!=par[cur]) // 사이클 = (다시 방문한 정점 중 부모노드가 아닌 정점의 개수)/2
                     {ans++;}
                 }
                 else{
@@ -41,3 +41,4 @@ int main() {
     }cout<<(ans/2)+cnt-1;
 
 }
+
