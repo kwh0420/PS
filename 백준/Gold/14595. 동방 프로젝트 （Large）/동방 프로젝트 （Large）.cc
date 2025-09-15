@@ -35,7 +35,7 @@ int main() {
     int maxr=0;
     for (int i=0; i<m; i++) {
         auto [x,y] = v [i];
-        for (int k=max(maxr,x); k<y; k++){union_find(k,k+1);}; // 스위핑을 통해서 풀어야함
+        for (int k=max(maxr,x); k<y; k++){union_find(k,k+1);}; // 스위핑을 통해서 풀어야함 , 중복연산이 과도하게 들어가고 n이 10만이상이라면정렬+스위핑을 의심해보자.
         maxr=max(maxr,y);
     }
     for (int i=1; i<=n; i++) {
@@ -45,3 +45,4 @@ int main() {
     cout <<cnt;
 
 }
+
