@@ -35,7 +35,7 @@ int main() {
     int maxr=0;
     for (int i=0; i<m; i++) {
         auto [x,y] = v [i];
-        for (int k=max(maxr,x); k<y; k++){union_find(k,k+1);};
+        for (int k=max(maxr,x); k<y; k++){union_find(k,k+1);}; // 스위핑을 통해서 풀어야함
         maxr=max(maxr,y);
     }
     for (int i=1; i<=n; i++) {
@@ -43,4 +43,5 @@ int main() {
         cnt++;
     }
     cout <<cnt;
+
 }
