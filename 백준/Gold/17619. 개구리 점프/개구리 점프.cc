@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
-int N,M;
-vector<int> par(1e5+2,-1);
-map<tuple<int,int,int>,int>mp;
-set<tuple<int,int,int>>st;
-int find(int target) {
+long long int N,M;
+vector<long long int> par(1e6+2,-1);
+map<tuple<long long int,long long int,long long int>,long long int>mp;
+set<tuple<long long int,long long int,long long int>>st;
+long long int find(long long int target) {
     if (par[target]<0) return target;
     return par[target] = find(par[target]);
 }
-int union_find(int u, int v) {
+long long int union_find(long long int u, long long int v) {
     u=find(u);
     v=find(v);
     if (u==v)return 0;
@@ -18,23 +18,36 @@ int union_find(int u, int v) {
     return 1;
 }
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     cin >> N >> M;
-    for (int i = 1; i <= N; i++) {
-        int a,b,c;
+    for (long long int i = 1; i <= N; i++) {
+        long long int a,b,c;
         cin >> a >> b >> c;
-        auto it =st.lower_bound({a,b,c});
-        if (st.size()>0&&it==st.end()){it--;}
-        mp[{b,a,c}]=i;
-        int y = get<0>((*it));
-        int x = get<1>((*it));
-        if (y>=a&& x<=b) {
-            int num = mp[*it];
-            union_find(num,i);
-        }
-        st.insert({b,a,c});
+        mp[{a,b,c}]=i;
+        st.insert({a,b,c});
     }
-    for (int i=1; i<=M; i++) {
-        int a,b;
+    long long int cnt=1;
+    auto it = st.begin();
+    long long int maxr=get<1>(*st.begin());
+    auto [x,y,z]=*it;
+    long int maxidx=mp[{x,y,z}];
+    for (auto it = st.begin() ; it != st.end() ; it++){
+        long long int x=get<0>(*it);
+        long long int y=get<1>(*it);
+        long long int z= get<2>(*it);
+
+        long long int idx1= mp[{x,y,z}];
+        cnt++;
+        if (x<=maxr){union_find(idx1,maxidx);}
+        if (maxr<y) {
+            maxr=y;
+            maxidx=idx1;
+        }
+        cnt++;
+    }
+    for (long long int i=1; i<=M; i++) {
+        long long int a,b;
         cin >> a >> b;
         if (find(a) == find (b)){cout << "1\n";}
         else {cout <<"0\n";}
