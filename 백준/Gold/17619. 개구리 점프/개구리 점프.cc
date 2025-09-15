@@ -39,7 +39,7 @@ int main() {
 
         long long int idx1= mp[{x,y,z}];
         cnt++;
-        if (x<=maxr){union_find(idx1,maxidx);}
+        if (x<=maxr){union_find(idx1,maxidx);} //시작점 순으로 정렬한 다음, maxr을 갱신하는 식으로 하면 겹치는 선분을 모두 구할 수 있음.
         if (maxr<y) {
             maxr=y;
             maxidx=idx1;
@@ -52,4 +52,5 @@ int main() {
         if (find(a) == find (b)){cout << "1\n";}
         else {cout <<"0\n";}
     }
+
 }
