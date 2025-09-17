@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> // 1로는 1을 만들수 있다. 1,2,4 로 7이하의 모든 조합을 만들 수 있다. 1,1,3,6,12로는 23이하의 모든 조합을 만들 수 있다. 진법에 대한 이해가 필요한 문제
 using namespace std;
 long long int p2[102];
 long long int arr[102];
@@ -17,4 +17,5 @@ int main() {
     long long int cnt=0;
     while (target>arr[cnt+1]){cnt++;}
     cout << cnt;
+
 }
