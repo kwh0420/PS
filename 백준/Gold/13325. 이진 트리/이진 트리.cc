@@ -2,33 +2,38 @@
 using namespace std;
 long long int N;
 #define ll long long int
-ll p2[30];
-long long int sumval[10000000];
-long long int arr[10000000];
+ll p2[23];
+int maxval = 0;
+long long int arr[1<<23];
+ll sum = 0;
 
- int main() {
+int dfs(int i) {
+    if (i > maxval) { return 0; }
+    ll a1 = dfs(i * 2 + 1);
+    ll a2 = dfs(i * 2 + 2);
+    if (a1 < a2) {
+        arr[i * 2 + 1] += a2 - a1;
+        return a2 + arr[i];
+    }
+    arr[i * 2 + 2] += a1 - a2;
+    return a1 + arr[i];
+}
+
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    p2[0]=1;
-    for (long long int i=1; i<30 ;i++) {
-        p2[i]=1;
-        p2[i]=p2[i-1]*2;
+    p2[0] = 1;
+    for (long long int i = 1; i < 23; i++) {
+        p2[i] = 1;
+        p2[i] = p2[i - 1] * 2;
     }
 
     cin >> N;
-    for (long long int i=1; i<=2*(p2[N]-1); i++) {cin >> arr[i];}
-    for (long long int j=N+1; j>=0; j--) {
-        for (long long int i=p2[j]-1; i<p2[j+1]-1; i+=2) {
-            if (sumval[i]>sumval[i+1]){arr[i+1]+=sumval[i]-sumval[i+1];}
-            else {arr[i]+=sumval[i+1]-sumval[i];}
-            long long int val = max (sumval[i],sumval[i+1]);
-            sumval[i]=val;
-            sumval[i+1]=val;
-            sumval[(i-1)/2]+= val+arr[(i-1)/2];
-        }
+    maxval = 2 * (p2[N] - 1);
+    for (long long int i = 1; i <= 2 * (p2[N] - 1); i++) { cin >> arr[i]; }
+    dfs(0);
+    for (long long int i = 1; i <= 2 * (p2[N] - 1); i++) {
+        sum += arr[i];
     }
-    long long int ans=0;
-    for (long long int i=1; i<=2*(p2[N]-1); i++) {ans+=arr[i];}
-
-    cout << ans;
+    cout << sum;
 }
