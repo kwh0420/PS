@@ -22,7 +22,7 @@ void move(int row, int col, int s, int dir) {
                 s = 0;
             }
         } else if (dir == 2) {
-            if (row + s > r-1) {
+            if (row + s > r-1) { // 끝 인덱스는 r이 아닌 r-1로 해야함
                 dir = 1;
                 s -= r - 1 - row;
                 row = r - 1;
@@ -114,4 +114,5 @@ int main() {
         //printx();
     }
     cout << cnt;
+
 }
