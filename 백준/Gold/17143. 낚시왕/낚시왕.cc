@@ -90,6 +90,8 @@ void inst() {
     }
 }
 int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
     cin >> r >> c>>m;
     for (int i=0; i<m; i++) {
         int R,C,S,D,Z;
