@@ -35,12 +35,7 @@ void move(int num) {
         }
         for (int i=0; i<matrix[nrow][ncol].size(); i++) {
             if (matrix[nrow][ncol][i]==num) {
-                for (int j=i; j<matrix[nrow][ncol].size(); j++) {
-                    matrix[nrow][ncol+1].push_back(matrix[nrow][ncol][j]);
-                    loc[matrix[nrow][ncol][j]]={nrow,ncol+1};
-                }
-                int k = matrix[nrow][ncol].size();
-                for (int j=i; j<k; j++) {
+                for (int j=i; j<matrix[nrow][ncol].size(); j음
                     matrix[nrow][ncol].pop_back();
                 }
                 break;
@@ -159,4 +154,5 @@ int main() {
         }
     }
     cout << -1;
+
 }
