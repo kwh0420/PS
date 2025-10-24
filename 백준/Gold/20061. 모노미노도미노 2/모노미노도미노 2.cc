@@ -11,7 +11,7 @@ void del(int row,int mode) {
         }
     }
     for (int j=0; j<4; j++) {
-        arr[mode][0][j]=0;
+        arr[mode][0][j]=0; // 땅기면서 원래 남아있는 놈들 0으로 초기화해주어야함
     }
 }
 void del2(int numofdel,int mode) {
@@ -22,7 +22,7 @@ void del2(int numofdel,int mode) {
     }
     for (int i=0; i<2; i++) {
         for (int j=0; j<4; j++) {
-            arr[mode][i][j] = 0;
+            arr[mode][i][j] = 0; // 땅기면서원래 남아있던 놈들 0으로초기화해주어야함 2
         }
     }
 }
@@ -98,7 +98,7 @@ void func(int mode,int t, int x, int y) {
         for (int j=0; j<4; j++) {
             if (arr[mode][i][j]==0) {
                 for (int k=0; k<4; k++) {
-                    temp[currow][k] = arr[mode][i][k];
+                    temp[currow][k] = arr[mode][i][k]; // 새로운 배열 만들어서 집어넣는식으로 하지 않으면 한줄 삭제될때마다 행의 위치가 계속 변함 이것때문에 계속 틀렸음
                 }
                 currow--;
                 break;
@@ -145,3 +145,4 @@ int main() {
     }
     cout << totalblock;
 }
+
