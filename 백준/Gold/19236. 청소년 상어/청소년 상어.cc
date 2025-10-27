@@ -84,14 +84,14 @@ void func(int depth) {
         locofshark= {nrow, ncol};
         result += t;
         func(depth + 1);
-        numofish[nrow][ncol] = t;
+        numofish[nrow][ncol] = t; // 실수 1 백트래킹에서 이동한 곳에 존재하는 물고기, 이동한 곳의 물고기의 방향, 원래 위치의 물고기, 원래 위치의 방향 총 4가지를 복원해주어야해서 매우 까다롭다 느껴짐
         dirofish[cur_row][cur_col] = p;
         numofish[cur_row][cur_col] = -1;
         locofshark = {cur_row, cur_col};
         result -=t;
     }
     maxresult = max(result, maxresult);
-    swap(temp,dirofish);
+    swap(temp,dirofish);// 실수 2 물고기가 이동하는데 이것도 백트래킹 해주어야한다는 사실을 알지 못함
     swap(temp2,numofish);
 }
 
@@ -99,7 +99,7 @@ int main() {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
             cin >> numofish[i][j] >> dirofish[i][j];
-            dirofish[i][j]--;
+            dirofish[i][j]--; // 실수 3, 물고기의 방향을 0-based로 해야할지 몰랐음.
             if (i == 0 && j == 0) {
                 result += numofish[i][j];
                 numofish[i][j] = -1;
@@ -110,3 +110,4 @@ int main() {
     func(0);
     cout << maxresult ;
 }
+
